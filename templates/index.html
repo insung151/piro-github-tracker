@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block css %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12 center-align">
+      <form method="get" autocomplete="off" action="">
+        <div class="row">
+          <div class="input-field col s4 offset-s4">
+            <img class='github prefix' src="{% static 'image/github.png' %}">
+            <input type="text" id="username-input" class="autocomplete">
+            <label for="autocomplete-input">github 아이디를 입력하세요.</label>
+          </div>
+        </div>
+        <button class="btn waves-effect waves-light" id="search-btn">Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+  <script>
+    var data = {};
+    {% for username in usernames %}
+      data["{{ username }}"] = null;
+    {% endfor %}
+    $(document).ready(function(){
+      $('input.autocomplete').autocomplete({
+        data: data,
+      });
+    });
+
+    $("#search-btn").click(function (e) {
+        var text = $('#username-input').val();
+      if (!text in data) {
+        e.preventDefault();
+        alert("등록되지 않은 사용자입니다!");
+      }
+      else{
+        $('form').attr('action', text);
+      }
+    })
+  </script>
+{% endblock %}
