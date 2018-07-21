@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  {%load static%}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <title>Piro</title>
 </head>
 <body>
+  <nav id="nav-fixed">
+    <div class="nav-wrapper container">
+      <a href="{% url 'main' %}" class="brand-logo" id="brand-logo-fixed">메인페이지</a>
+    </div>
+  </nav>
+
 {% block content%}{% endblock %}
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2014 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="https://github.com/insung151/piro">Github repository</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
