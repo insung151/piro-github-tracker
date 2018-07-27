@@ -5,3 +5,21 @@
 .page-footer {
     background: darkgreen;
 }
+
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+#search-btn {
+    min-width: 15vw;
+}
